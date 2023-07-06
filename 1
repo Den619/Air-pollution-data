@@ -1,0 +1,9 @@
+data <- read_excel("D:\\3307___\\Air_Pollution_Template\\Ternopil.xlsx", sheet = "Лист1", range = "A1:A1166", col_names = FALSE)
+
+column_data <- unlist(data)
+
+# Створення нового стовпця для зберігання погодинних даних
+hourly_data <- data.frame(hourly_data = rep(column_data, each = 7))
+
+# Створення нового Excel-файлу та збереження результату
+write_xlsx(hourly_data, "D:\\3307___\\Air_Pollution_Template\\Ternopil3.xlsx")
