@@ -1,0 +1,13 @@
+install.packages("readxl")
+install.packages("writexl")
+library(writexl)
+library(readxl)
+data <- read_excel("C:\\Users\\DeGray\\Desktop\\Den\\Чернігів\\CO.xlsx", sheet = "Лист1", range = "A1:A1166", col_names = FALSE)
+
+column_data <- unlist(data)
+
+# Створення нового стовпця для зберігання погодинних даних
+hourly_data <- data.frame(hourly_data = rep(column_data, each = 8))
+
+# Створення нового Excel-файлу та збереження результату
+write_xlsx(hourly_data, "C:\\Users\\DeGray\\Desktop\\Den\\Чернігів\\ChernigivCO.xlsx")
